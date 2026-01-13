@@ -23,7 +23,7 @@ export default function App() {
 
   async function loadApps() {
     setError("");
-    const res = await fetch(`${API}/api/applications/`);
+    const res = await fetch(`/api/applications/`);
     if (!res.ok) {
       setError(`failed to load (${res.status})`);
       return;
@@ -45,7 +45,7 @@ export default function App() {
     setSaving(true);
     setError("");
     try {
-      const res = await fetch(`${API}/api/applications/`, {
+      const res = await fetch(`/api/applications/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -70,7 +70,7 @@ export default function App() {
 
   async function remove(id) {
     setError("");
-    const res = await fetch(`${API}/api/applications/${id}/`, { method: "DELETE" });
+    const res = await fetch(`/api/applications/${id}/`, { method: "DELETE" });
     if (!res.ok) {
       setError(`delete failed (${res.status})`);
       return;
